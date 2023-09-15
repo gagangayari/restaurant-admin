@@ -5,6 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { OrderEffects } from './store/effects/order.effects';
 import {reducer} from './store/reducers/order.reducer';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,6 +15,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   ],
   imports: [
     CommonModule,
+    EffectsModule,
+    HttpClientModule,
+    // MatTableModule,
     StoreModule.forFeature('orders',reducer),
     EffectsModule.forFeature([OrderEffects])
   ],

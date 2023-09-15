@@ -1,15 +1,16 @@
 import { createAction, props } from '@ngrx/store';
+import { Order } from '../../order.model';
 
-export const orderOrders = createAction(
-  '[Order] Order Orders'
+export const loadOrders = createAction(
+  '[Order] LoadOrders'
 );
 
-export const orderOrdersSuccess = createAction(
-  '[Order] Order Orders Success',
-  props<{ data: any }>()
+export const loadOrdersSuccess = createAction(
+  '[Order] getOrdersSuccess',
+  props<{ orders: ReadonlyArray<Order[]>}>()
 );
 
-export const orderOrdersFailure = createAction(
-  '[Order] Order Orders Failure',
+export const loadOrdersFailure = createAction(
+  '[Order] getOrdersFailure',
   props<{ error: any }>()
 );
