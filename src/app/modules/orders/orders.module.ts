@@ -6,6 +6,8 @@ import { OrderEffects } from './store/effects/order.effects';
 import {reducer} from './store/reducers/order.reducer';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table'
+
 
 
 
@@ -17,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     EffectsModule,
     HttpClientModule,
-    // MatTableModule,
+    MatTableModule,
     StoreModule.forFeature('orders',reducer),
     EffectsModule.forFeature([OrderEffects])
   ],

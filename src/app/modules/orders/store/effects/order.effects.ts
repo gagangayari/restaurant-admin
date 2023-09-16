@@ -23,7 +23,7 @@ export class OrderEffects {
     return this.actions$.pipe(
       ofType(orderActions.loadOrders),
       exhaustMap(()=>{
-        console.log("Orders load");
+        // console.log("Orders load");
         return this.orderSvc.getOrders().pipe(
           map((response) => {
             // Assuming "orders" is an array within the response
@@ -42,7 +42,7 @@ export class OrderEffects {
               return processedOrder;
             });
 
-            console.log("Orders processed", ordersList);
+            // console.log("Orders processed", ordersList);
             
   
             return ordersList; // Return the processed "ordersList"

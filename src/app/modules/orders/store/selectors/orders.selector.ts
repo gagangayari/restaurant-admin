@@ -7,7 +7,7 @@ export const orderState= createFeatureSelector<OrderState>('orders');
 export const OrdersList = createSelector(
     orderState,
     (state) => {
-        console.log("selector filed", state);
+        // console.log("selector filed", state);
         
         return state;
     }

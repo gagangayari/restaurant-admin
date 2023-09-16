@@ -15,7 +15,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OrdersModule } from './modules/orders/orders.module';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     StoreModule.forRoot([], {}),
     EffectsModule.forRoot([]),
+    MatTableModule,
 
     BrowserModule,
     AppRoutingModule,
