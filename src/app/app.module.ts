@@ -12,18 +12,20 @@ import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-import { OrdersModule } from './modules/orders/orders.module';
+import {  SideNaveModule } from './modules/sidenav/sidenav.module';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MatTableModule } from '@angular/material/table';
+import { ProductsModule } from './modules/products/products.module';
+import { OrdersComponent } from './modules/orders/component/orders/orders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavBarComponent,
-    // SidenavComponent,
-    DashboardComponent
+    DashboardComponent,
+    OrdersComponent
   ],
   imports: [
     StoreModule.forRoot([], {}),
@@ -32,7 +34,8 @@ import { MatTableModule } from '@angular/material/table';
 
     BrowserModule,
     AppRoutingModule,
-    OrdersModule,
+    SideNaveModule,
+    ProductsModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

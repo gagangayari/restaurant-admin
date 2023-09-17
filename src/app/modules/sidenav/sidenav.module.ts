@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { OrderEffects } from './store/effects/order.effects';
-import {reducer} from './store/reducers/order.reducer';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { OrderEffects } from '../orders/store/effects/order.effects';
+import {reducer} from '../orders/store/reducers/order.reducer';
+import { SidenavComponent } from './component/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table'
+import { SideNavRoutingModule } from './sidenav-routing.module';
+// import { MatTableModule } from '@angular/material/table'
 
 
 
@@ -19,10 +20,10 @@ import { MatTableModule } from '@angular/material/table'
     CommonModule,
     EffectsModule,
     HttpClientModule,
-    MatTableModule,
+    SideNavRoutingModule,
     StoreModule.forFeature('orders',reducer),
     EffectsModule.forFeature([OrderEffects])
   ],
   exports: [SidenavComponent],
 })
-export class OrdersModule { }
+export class SideNaveModule { }
