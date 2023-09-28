@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MatTableModule } from '@angular/material/table';
 import { ProductsModule } from './modules/products/products.module';
 import { OrdersComponent } from './modules/orders/component/orders/orders.component';
+import { LoadSpinnerComponent } from './shared/components/load-spinner/load-spinner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { OrdersComponent } from './modules/orders/component/orders/orders.compon
     HomeComponent,
     NavBarComponent,
     DashboardComponent,
-    OrdersComponent
+    OrdersComponent,
+    LoadSpinnerComponent
   ],
   imports: [
     StoreModule.forRoot([], {}),
@@ -40,7 +42,6 @@ import { OrdersComponent } from './modules/orders/component/orders/orders.compon
       maxAge: 25,
       logOnly: environment.production,
     }),
-    // MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-<div class="table-responsive small">
+
+<div *ngIf="ordersListItems.length >0" class="table-responsive small">
       <table mat-table [dataSource]="ordersListItems" class="table table-striped table-sm" >
         <ng-container matColumnDef="item">
           <th mat-header-cell *matHeaderCellDef> Item </th>

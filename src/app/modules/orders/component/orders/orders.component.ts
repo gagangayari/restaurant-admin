@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { OrdersList } from '../../store/selectors/orders.selector';
+import { onBrowserReload } from '../../store/actions/order.actions';
 
 
 @Component({
@@ -25,6 +26,10 @@ export class OrdersComponent {
       this.ordersListItems = data
       
     })
+  }
+
+  ngOnInit() {
+    // this.store.dispatch(onBrowserReload());
   }
 
 
