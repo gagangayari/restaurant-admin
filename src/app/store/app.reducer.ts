@@ -1,14 +1,18 @@
 import { createReducer } from "@ngrx/store"
-import { reducer }  from "../modules/orders/store/reducers/order.reducer"
+import { orderReducer }  from "../modules/orders/store/reducers/order.reducer"
 
 
 import { Order } from "../modules/orders/order.model";
 import { Product } from "../modules/products/products.model";
+import { sharedReducer } from "../shared/shared.reducer";
+import { SharedState } from "../shared/shared.reducer";
+import { featureKey } from "../shared/shared.selector";
 
 export interface AppState{
-    orders: Order
+    [featureKey]: SharedState
 }
 
 export const appReducer = {
-    orders: reducer,
+    [featureKey] : sharedReducer
 }
+

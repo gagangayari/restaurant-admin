@@ -2,12 +2,12 @@ import { createAction, props } from '@ngrx/store';
 import { Product } from '../products.model';
 
 export const loadProducts = createAction(
-  '[Products] LoadProducts',
+  '[Products] LoadProducts'
 );
 
 export const loadProductSuccess = createAction(
   '[Products] LoadProductSuccess',
-  props<{ orders: ReadonlyArray<Product[]>}>()
+  props<{ products: ReadonlyArray<Product[]>}>()
 );
 
 export const loadProductFailure = createAction(

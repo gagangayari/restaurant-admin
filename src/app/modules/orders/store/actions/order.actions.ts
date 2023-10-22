@@ -21,4 +21,13 @@ export const onBrowserReload = createAction(
   props<{state : AppState}>
 );
 
-export const dummyAction = createAction('DummyAction')
+export const deleteOrder = createAction(
+  '[Order] deleteOrders',
+  props<{ orderId : String}>()
+
+);
+
+export const deleteOrderSuccess = createAction('[Order] deleteOrdersSuccess');
+export const deleteOrderFailure = createAction('[Order] deleteOrdersFailure');
+
+export const dummyAction = createAction('[dummyAction] DummyAction')

@@ -6,6 +6,7 @@ import { Order } from '../../orders/order.model';
 import { Observable, Subscription, tap } from 'rxjs';
 import { OrdersList } from '../../orders/store/selectors/orders.selector';
 import { Router } from '@angular/router';
+import { setLoadingSpinner } from 'src/app/shared/shared.action';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class SidenavComponent implements OnInit {
 
 
   getOrders(): void {
+    this.store.dispatch(setLoadingSpinner({status: true}));
     this.store.dispatch(OrderActions.loadOrders());
     
 

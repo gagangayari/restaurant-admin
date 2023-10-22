@@ -11,17 +11,34 @@ import * as Actions from './store/actions/order.actions'
 export class OrdersServices {
 
   private apiUrl = 'https://firestore.googleapis.com/v1/projects/my-restaurant-ce2f0/databases/(default)/documents/orders/'; // Replace with your API endpoint
-  private bearerToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFkNWM1ZTlmNTdjOWI2NDYzYzg1ODQ1YTA4OTlhOWQ0MTI5MmM4YzMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbXktcmVzdGF1cmFudC1jZTJmMCIsImF1ZCI6Im15LXJlc3RhdXJhbnQtY2UyZjAiLCJhdXRoX3RpbWUiOjE2OTU5MTkxMjgsInVzZXJfaWQiOiI3a1lLY2h5QXVTVGl1UjZUWmJSY1VleDloY0UyIiwic3ViIjoiN2tZS2NoeUF1U1RpdVI2VFpiUmNVZXg5aGNFMiIsImlhdCI6MTY5NTkxOTEyOCwiZXhwIjoxNjk1OTIyNzI4LCJlbWFpbCI6ImJubUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiYm5tQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.wtMh1q4qAwCO-bSvpaa99ZPNTPBakmSprkNODqvobCDYATgL3CY7Ti5CBiPutRRSr7quQb2NEEu2qyZEo3Zh1leAVagHKtn15oO_vAjdbA3ivHtA4XR40Ehj6xbEmzqWwf8UP6SRzk8i5pm1cDZrAY5RYXLm3Eq5mbpNdl1cNazUr8ZTBlJxwdp9rHhwIasBN0LEe8N6R-TgOmttuRxlRUGdou6u6UFfKh0YKJLyKklFBJxn7xTbSY2V_30IYo6K8G-HB2CqoxdcRUZVSrhIyJ2NYJSzVztuOZQJL0V4xg85t-fBvdVTMvLX5hJheqJoCUUVptyA0z5Uu4k83wVCRw"
+  private bearerToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImYyZTgyNzMyYjk3MWExMzVjZjE0MTZlOGI0NmRhZTA0ZDgwODk0ZTciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbXktcmVzdGF1cmFudC1jZTJmMCIsImF1ZCI6Im15LXJlc3RhdXJhbnQtY2UyZjAiLCJhdXRoX3RpbWUiOjE2OTcyNzk3OTEsInVzZXJfaWQiOiI3a1lLY2h5QXVTVGl1UjZUWmJSY1VleDloY0UyIiwic3ViIjoiN2tZS2NoeUF1U1RpdVI2VFpiUmNVZXg5aGNFMiIsImlhdCI6MTY5NzI3OTc5MSwiZXhwIjoxNjk3MjgzMzkxLCJlbWFpbCI6ImJubUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiYm5tQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.jx3RM02IYvhAwYt9WzsellyXkYjmAqEAjI4L1T1WVoQJSRrm9V71Y_1SwgBV_Rz9U7IXzS3tbc2qaX8wjIJagskaRCmsKcwNKfT-ldPb30adQfRUIulfhTy0oF_dWiXp9WDYHofPzcmIdFRFf1LvWkdGZFIbJgEDAPleXhUWrwmUUU9Avjn8lAIAYepfU332NL1b0w1qx0krKLcNOIxw5fZjaZ7pKDMF7yaKdQXMPa9arszxScRmKfRHc-6MkcTWsYbeQRZXsKc8_PbCYPvqwfVa0SSnzxGI8tHwjBknwXM6bBqXkpFtIuIgPlLMMKCuwV-z64xsw3jdS2kUKyGC1A"
 
   constructor(private http: HttpClient, private store: Store) {
   }
 
+  sleep(ms:any) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   // Method to fetch a list of orders
   getOrders() : Observable<any>{//Should return an Observable of type Order[], but returns {document:[]}
+    
+    
     return this.http.get<Order[]>(this.apiUrl,{
       headers: {"Authorization": 'Bearer ' + this.bearerToken}
 
     });
+  }
+
+
+  deleteOrders(orderId : String) : Observable<any>{
+    const temp = orderId.split('/');
+    const id = (temp[temp.length - 1]);
+    
+    return this.http.delete<Order[]>(
+      this.apiUrl + id, {
+      headers: {"Authorization": 'Bearer ' + this.bearerToken}
+
+      })
   }
 
   

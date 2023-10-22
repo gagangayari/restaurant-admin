@@ -1,4 +1,7 @@
 
+<!-- <app-load-spinner *ngIf="ordersListItems.length ==0"></app-load-spinner> -->
+<app-load-spinner *ngIf="showLoading | async"></app-load-spinner>
+
 <div *ngIf="ordersListItems.length >0" class="table-responsive small">
       <table mat-table [dataSource]="ordersListItems" class="table table-striped table-sm" >
         <ng-container matColumnDef="item">
@@ -10,6 +13,16 @@
           <th mat-header-cell *matHeaderCellDef> Price </th>
           <td mat-cell *matCellDef="let element"> {{element.price}} </td>
         </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="deleteItem(row)">
+              <mat-icon fontIcon="delete_forever" color="warning"></mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        
 
         <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
         <tr mat-row *matRowDef="let row; columns: columnNames;"></tr>
