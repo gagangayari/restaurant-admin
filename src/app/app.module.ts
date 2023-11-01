@@ -35,8 +35,8 @@ import { OrdersComponent } from './modules/orders/component/orders/orders.compon
 import { LoadSpinnerComponent } from './shared/components/load-spinner/load-spinner.component';
 import { appReducer } from './store/app.reducer';
 import { OrdersModule } from './modules/orders/orders.module';
-import { LoginComponent } from './modules/auth/login/login.component';
 import { AuthModule } from './modules/auth/auth.module';
+import { AuthEffects } from './modules/auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -46,13 +46,12 @@ import { AuthModule } from './modules/auth/auth.module';
     DashboardComponent,
     OrdersComponent,
     LoadSpinnerComponent,
-    LoginComponent
   ],
   imports: [
     AuthModule,
 
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     MatTableModule,
     BrowserModule,
     MatInputModule,

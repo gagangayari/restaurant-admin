@@ -17,6 +17,7 @@ import { setLoadingSpinner } from 'src/app/shared/shared.action';
 export class SidenavComponent implements OnInit {
   ordersList$: any = [];
   subscription!: Subscription;
+  isAuthenticated: boolean = false;
 
   constructor(private store: Store, private router: Router) { 
     // this.ordersList$ = this.store.select(OrdersList);

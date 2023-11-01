@@ -7,12 +7,15 @@ import { Product } from "../modules/products/products.model";
 import { sharedReducer } from "../shared/shared.reducer";
 import { SharedState } from "../shared/shared.reducer";
 import { featureKey } from "../shared/shared.selector";
+import { AuthState, authReducer } from "../modules/auth/store/auth.reducer";
 
 export interface AppState{
-    [featureKey]: SharedState
+    [featureKey]: SharedState,
+    'auth': AuthState
 }
 
 export const appReducer = {
-    [featureKey] : sharedReducer
+    [featureKey] : sharedReducer,
+    'auth': authReducer
 }
 

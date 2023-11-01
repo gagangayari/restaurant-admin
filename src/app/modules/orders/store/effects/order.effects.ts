@@ -22,7 +22,6 @@ export class OrderEffects {
     private orderSvc: OrdersServices,
     private store: Store<AppState>
     ) {
-    console.log("INitiating order effects");
     
   }
 
@@ -41,7 +40,7 @@ export class OrderEffects {
         }
         else{
 
-          console.log("Order action", action);
+          console.log("Order action", typeof action);
           
 
           return this.orderSvc.getOrders().pipe(
@@ -52,7 +51,6 @@ export class OrderEffects {
               const orders = response.documents; // Modify this according to your API response structure
     
               const ordersList = orders.map((order: any) => {
-                console.log("An order has been", order.name);
                 
                 
                 // Process and transform each order as needed
@@ -82,9 +80,8 @@ export class OrderEffects {
     ofType(orderActions.deleteOrder),
     exhaustMap((action) =>
       {
-        console.log("Action deleted", action);
         
-        return this.orderSvc.deleteOrders(action.orderId).pipe(
+        return this.orderSvc.deleteOrders(action.orderId  ).pipe(
           switchMap(() => [
             orderActions.deleteOrderSuccess(),
           ]),

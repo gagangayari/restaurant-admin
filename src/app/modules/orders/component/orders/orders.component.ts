@@ -16,7 +16,7 @@ export class OrdersComponent {
   ordersList$ = this.store.select(OrdersList);
   ordersListItems : any = [];
 
-  columnNames : String[] = ['item', 'Price','delete']
+  columnNames : String[] = ['item', 'Price','delete','edit']
 
 
   orderListSubscription : Subscription
@@ -30,7 +30,6 @@ export class OrdersComponent {
 
 
     this.orderListSubscription = this.ordersList$.subscribe(data => {
-      console.log("Here", data);
       this.ordersListItems = data
       
     })

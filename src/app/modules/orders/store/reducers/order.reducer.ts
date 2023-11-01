@@ -15,9 +15,6 @@ export const orderReducer = createReducer(
   on(
     Actions.loadOrdersSuccess,
     (state, action)=> {
-      console.log("State: " ,state);
-      console.log("Order: " ,action.orders);
-      
       
       return action.orders
     }
