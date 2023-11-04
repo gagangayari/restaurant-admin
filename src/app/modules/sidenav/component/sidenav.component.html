@@ -16,23 +16,22 @@
               Dashboard
             </a>
           </li>
-          <li class="nav-item" (click)="getOrders()">
-            <a class="nav-link d-flex align-items-center gap-2" routerLink="/orders">
+          <li *ngIf="isAuthenticated" class="nav-item" (click)="getOrders()">
+            <a class="nav-link d-flex align-items-center gap-2" >
               Orders
-
             </a>
           
           </li>
           <div>
           </div>
-          <li class="nav-item" (click)="showProducts()">
-            <a class="nav-link d-flex align-items-center gap-2" routerLink="/products">
+          <li *ngIf="isAuthenticated" class="nav-item" (click)="showProducts()">
+            <a class="nav-link d-flex align-items-center gap-2" >
               Products
             </a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="isAuthenticated" class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2" href="#">
-              Customers
+              Users
             </a>
           </li>
           <li class="nav-item">
@@ -83,11 +82,13 @@
               Settings
             </a>
           </li>
-          <li class="nav-item">
-            <a *ngIf="isAuthenticated" class="nav-link d-flex align-items-center gap-2" href="#">
+          <li *ngIf="isAuthenticated" class="nav-item" >
+            <a class="nav-link d-flex align-items-center gap-2" href="" (click)="logout()">
               Sign out
             </a>
-            <a *ngIf="!isAuthenticated" class="nav-link d-flex align-items-center gap-2" href="#">
+          </li>
+          <li>
+            <a *ngIf="!isAuthenticated" class="nav-link d-flex align-items-center gap-2" (click)="openLogin()">
               Sign In
             </a>
           </li>

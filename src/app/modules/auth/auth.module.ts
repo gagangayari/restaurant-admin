@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { LoginComponent } from './login/login.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
@@ -11,6 +12,8 @@ import { EffectsModule } from "@ngrx/effects";
 import { authReducer } from "./store/auth.reducer";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth.interceptor";
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog'
+
 
 
 
@@ -18,11 +21,13 @@ import { AuthInterceptor } from "./auth.interceptor";
 
 @NgModule({
     imports: [
+      CommonModule,
       ReactiveFormsModule,
       MatCardModule,
       MatFormFieldModule,
       MatInputModule,
       MatButtonModule,
+      MatDialogModule,
       EffectsModule.forFeature(),
 
       // StoreModule.forFeature('Auth', authReducer )
@@ -33,6 +38,7 @@ import { AuthInterceptor } from "./auth.interceptor";
     exports : [LoginComponent],
     providers: [
       {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+      {provide: MatDialogRef, useValue: {}}
     ]
 })
 export class AuthModule{}

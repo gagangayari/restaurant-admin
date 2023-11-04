@@ -12,7 +12,6 @@ export class AuthInterceptor implements HttpInterceptor{
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token$ = this.store.select(getidToken)
         token$.subscribe((token) => {
-            console.log("token", token);
             if(token){
                 req = req.clone({
                     setHeaders: {
@@ -20,10 +19,8 @@ export class AuthInterceptor implements HttpInterceptor{
                     },
                   });
             }
-            console.log(req);
             
         })
-        console.log("request",req);
         return next.handle(req);
     }
 }

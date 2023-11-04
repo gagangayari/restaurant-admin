@@ -20,4 +20,8 @@ export class AuthService{
 
     }
 
+    // isAuthenticated(): Observable<boolean>{
+    // }
+
+
 }

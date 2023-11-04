@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { OrdersList } from '../../store/selectors/orders.selector';
 import * as OrderActions from '../../store/actions/order.actions';
-import { getLoadingState } from 'src/app/shared/shared.selector';
+import { getLoadingState } from 'src/app/shared/store/shared.selector';
 import { AppState } from 'src/app/store/app.reducer';
 
 
@@ -25,7 +25,6 @@ export class OrdersComponent {
 
   constructor(private store: Store<AppState>){
     this.showLoading = this.store.select(getLoadingState);
-    console.log("Show loading", this.showLoading);
     
 
 

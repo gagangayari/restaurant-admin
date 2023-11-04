@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getLoadingState } from '../../shared.selector';
+import { getLoadingState } from '../../store/shared.selector';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,7 +14,6 @@ export class LoadSpinnerComponent implements OnInit {
 
   constructor(private store: Store){
     this.loadSpinner = this.store.select(getLoadingState);
-    console.log("The spinner ", this.loadSpinner);
   }
 
   ngOnInit(): void {
