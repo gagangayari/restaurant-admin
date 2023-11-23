@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class StatePersistenceService {
+export class AppService {
+  currentTab : Subject<string> = new Subject();
+
+  currentTab$ : Observable<string> = this.currentTab.asObservable();
+
+  constructor()
+  {
+
+  } 
+  
   saveState(key: string, state: any): void {
     localStorage.setItem(key, JSON.stringify(state));
   }

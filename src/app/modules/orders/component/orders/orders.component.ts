@@ -23,7 +23,10 @@ export class OrdersComponent {
 
   showLoading : Observable<boolean> ;
 
-  constructor(private store: Store<AppState>){
+
+  constructor(
+    private store: Store<AppState>,
+   ){
     this.showLoading = this.store.select(getLoadingState);
     
 
