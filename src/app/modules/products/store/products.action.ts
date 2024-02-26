@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Product } from '../products.model';
+import { productItem } from '../products.model';
 
 export const loadProducts = createAction(
   '[Products] LoadProducts'
@@ -7,10 +7,13 @@ export const loadProducts = createAction(
 
 export const loadProductSuccess = createAction(
   '[Products] LoadProductSuccess',
-  props<{ products: ReadonlyArray<Product[]>}>()
+  props<{ products: ReadonlyArray<productItem[]>}>()
 );
 
 export const loadProductFailure = createAction(
   '[Products] LoadProductFailure',
   props<{ error: any }>()
 );
+
+export const dummyAction = createAction('[dummyAction] DummyAction')
+

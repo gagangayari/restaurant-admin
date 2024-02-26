@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import { User } from "../auth.model";
 import * as authActions from "./auth.action";
-import { state } from "@angular/animations";
+// import { state } from "@angular/animations";
 
 export interface AuthState{
     user : User | null

@@ -1,9 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
 import * as Actions from "./products.action";
-import { Product } from "../products.model";
+import { productItem } from "../products.model";
 
 
-export const initialState: ReadonlyArray<Product[]> = [];
+export const initialState: ReadonlyArray<productItem[]> = [];
 
 export const productsReducer = createReducer(
     initialState,

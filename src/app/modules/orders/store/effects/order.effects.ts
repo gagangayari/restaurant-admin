@@ -32,11 +32,11 @@ export class OrderEffects {
     return this.actions$.pipe(
       ofType(orderActions.loadOrders),
       withLatestFrom(this.store.select(OrdersList)),
-      tap((orders) => console.log("Orders loaded", orders)),
+      // tap((orders) => console.log("Orders loaded", orders)),
       //Exhaustmap is used because on clicking order, first it should complete loading the orders
       //and not respond if double clicking on order
       exhaustMap(([action,orderslist])=>{
-        console.log("orderlist  ->",orderslist)
+        // console.log("orderlist  ->",orderslist)
         if(orderslist.length){
           this.store.dispatch(setLoadingSpinner({status: false }));          
           return of(orderActions.dummyAction());
@@ -71,7 +71,8 @@ export class OrderEffects {
     
               return ordersList; // Return the processed "ordersList"
             }),
-            map(orders => orderActions.loadOrdersSuccess({ orders})))
+            map(orders => orderActions.loadOrdersSuccess({ orders}))
+            )
             
           }
       }));

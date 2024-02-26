@@ -56,8 +56,9 @@ export class SidenavComponent implements OnInit {
    
   }
 
-  async showProducts(): Promise<void>{
+  async getProducts(): Promise<void>{
     await this.router.navigate(['products']);
+    this.store.dispatch(setLoadingSpinner({status: true}));
     this.store.dispatch(ProductActions.loadProducts());
   }
 

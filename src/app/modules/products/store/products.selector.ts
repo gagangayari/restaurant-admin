@@ -1,3 +1,11 @@
-import { createFeatureSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 
-export const productsState = createFeatureSelector("products")
+export const productsState = createFeatureSelector("productsState")
+
+
+export const ProductsList = createSelector(
+    productsState,
+    (state) => {
+        return state ;
+    }
+);

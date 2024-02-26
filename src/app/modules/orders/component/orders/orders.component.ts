@@ -29,8 +29,6 @@ export class OrdersComponent {
    ){
     this.showLoading = this.store.select(getLoadingState);
     
-
-
     this.orderListSubscription = this.ordersList$.subscribe(data => {
       this.ordersListItems = data
       

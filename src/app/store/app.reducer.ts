@@ -1,9 +1,8 @@
 import { createReducer, on } from "@ngrx/store"
-import { OrderState, orderReducer }  from "../modules/orders/store/reducers/order.reducer"
+// import { OrderState, orderReducer }  from "../modules/orders/store/reducers/order.reducer"
 
 
-import { Order } from "../modules/orders/order.model";
-import { Product } from "../modules/products/products.model";
+// import { Order } from "../modules/orders/order.model";
 import { sharedReducer } from "../shared/store/shared.reducer";
 import { SharedState } from "../shared/store/shared.reducer";
 import { featureKey } from "../shared/store/shared.selector";
@@ -23,13 +22,13 @@ export const appReducer = {
 
 export const initialState: any = null;
 
-export const productsReducer = createReducer(
-    initialState,
-    on(BrowserReload,(state, action) => {
-        return state;
-    })
+// export const productsReducer = createReducer(
+//     initialState,
+//     on(BrowserReload,(state, action) => {
+//         return state;
+//     })
      
-)
+// )
 
 
 
