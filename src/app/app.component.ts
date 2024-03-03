@@ -6,6 +6,7 @@ import { User } from './modules/auth/auth.model';
 import { BrowserReload } from './store/app.action';
 import { AppState } from './store/app.reducer';
 import { NavigationStart, Router } from '@angular/router';
+import { getidToken } from './modules/auth/store/auth.selector';
 
 @Component({
   selector: 'app-root',
@@ -44,6 +45,13 @@ export class AppComponent implements OnInit, OnDestroy{
 
     // this.showLoading = this.store.select(getLoadingState);
     // console.log("constructor app ");
+
+    this.store.select(getidToken).subscribe(token =>{
+      if(token){
+        this.store.dispatch(BrowserReload({appState : this.appState!}))
+      }
+
+    })
     
 
   }

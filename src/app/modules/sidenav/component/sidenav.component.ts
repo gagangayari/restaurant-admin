@@ -60,7 +60,7 @@ export class SidenavComponent implements OnInit {
     await this.router.navigate(['products']);
     this.store.dispatch(setLoadingSpinner({status: true}));
     this.store.dispatch(ProductActions.loadProducts());
-  }
+      }
 
   openLogin(){
     this.dialog.open(LoginComponent,{

@@ -71,6 +71,7 @@ export class OrderEffects {
     
               return ordersList; // Return the processed "ordersList"
             }),
+            //What happens if loadorder fails. Write the code for that also
             map(orders => orderActions.loadOrdersSuccess({ orders}))
             )
             
