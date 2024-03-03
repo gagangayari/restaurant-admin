@@ -13,6 +13,9 @@
       </div>
     </div>
 
+    <h2 *ngIf="!isLoggedIn">Please Login</h2>
+    <p *ngIf="!isLoggedIn">Contact admin for username and password</p>
+
     <!-- <canvas class="my-4 w-100" id="myChart" width="2304" height="972" style="display: block; box-sizing: border-box; height: 486px; width: 1152px;"></canvas> -->
 
     <!-- <h2>{{activeMenu}}</h2> -->

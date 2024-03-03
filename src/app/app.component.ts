@@ -18,7 +18,7 @@ export class AppComponent implements OnInit, OnDestroy{
 
   // userKey: string | null ;
   appState : AppState | null = null;
-
+  
   // showLoading : Observable<boolean>;
 
   constructor(private store: Store, private router: Router){
@@ -48,7 +48,8 @@ export class AppComponent implements OnInit, OnDestroy{
 
     this.store.select(getidToken).subscribe(token =>{
       if(token){
-        this.store.dispatch(BrowserReload({appState : this.appState!}))
+        this.isLoggedIn  = true;
+
       }
 
     })
