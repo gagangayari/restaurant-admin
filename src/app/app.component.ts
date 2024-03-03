@@ -45,14 +45,6 @@ export class AppComponent implements OnInit, OnDestroy{
 
     // this.showLoading = this.store.select(getLoadingState);
     // console.log("constructor app ");
-
-    this.store.select(getidToken).subscribe(token =>{
-      if(token){
-        this.isLoggedIn  = true;
-
-      }
-
-    })
     
 
   }
