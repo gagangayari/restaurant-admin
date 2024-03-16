@@ -8,12 +8,22 @@ import { AppState } from './store/app.reducer';
 import { NavigationStart, Router } from '@angular/router';
 import { getidToken } from './modules/auth/store/auth.selector';
 
+
+import { MetaReducer } from "@ngrx/store";
+import { hydrationMetaReducer } from "./store/hydration.reducer"
+
+export const metaReducers: MetaReducer[] = [hydrationMetaReducer];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent implements OnInit, OnDestroy{
+
+
   title = 'admin-app';
 
   // userKey: string | null ;

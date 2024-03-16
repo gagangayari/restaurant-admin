@@ -81,6 +81,7 @@ export class SidenavComponent implements OnInit {
   }
 
   logout(){
+    localStorage.clear();
     this.store.dispatch(AuthActions.logout());
   }
 

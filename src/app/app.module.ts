@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, metaReducers } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -49,7 +49,7 @@ import { OrderEffects } from './modules/orders/store/effects/order.effects';
     AuthModule,
     HttpClientModule,
     SharedModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(appReducer, {metaReducers}),
     EffectsModule.forRoot([AuthEffects]),
     MatTableModule,
     BrowserModule,
